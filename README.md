@@ -9,7 +9,7 @@ A simple URL Shortener microservice trough Hexagonal architecture in Go.
 
 ### Posible project structure
 
-´´´
+```
 app/
 ├─ cmd/
 │  ├─ router/
@@ -28,4 +28,4 @@ app/
 │  ├─ handlers/
 │  ├─ repositores/
 
-´´´
+```
