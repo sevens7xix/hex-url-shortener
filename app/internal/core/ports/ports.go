@@ -3,7 +3,7 @@ package ports
 import "github.com/sevens7xix/hex-url-shortener/internal/core/domain"
 
 type ShortenersRepository interface {
-	Get(ID uint64) (domain.Data, error)
+	Get(shortURL string) (domain.Data, error)
 	Create(Data domain.Data) error
 }
 
