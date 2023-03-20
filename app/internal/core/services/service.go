@@ -3,17 +3,17 @@ package services
 import (
 	"time"
 
-	"github.com/sevens7xix/hex-url-shortener/internal/core/domain"
-	"github.com/sevens7xix/hex-url-shortener/internal/core/ports"
-	utilites "github.com/sevens7xix/hex-url-shortener/pkg/utilities"
+	"github.com/sevens7xix/hex-url-shortener/app/internal/core/domain"
+	"github.com/sevens7xix/hex-url-shortener/app/internal/core/ports"
+	utilities "github.com/sevens7xix/hex-url-shortener/app/pkg/utilities"
 )
 
 type Service struct {
 	ShortenersRepository ports.ShortenersRepository
-	generator            utilites.Shortener
+	generator            utilities.Shortener
 }
 
-func NewService(repository ports.ShortenersRepository, generator utilites.Shortener) *Service {
+func NewService(repository ports.ShortenersRepository, generator utilities.Shortener) *Service {
 	return &Service{ShortenersRepository: repository,
 		generator: generator}
 }

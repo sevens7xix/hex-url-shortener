@@ -26,6 +26,7 @@ app/
 │  │  ├─ domain/
 │  │  │  ├─ data.go
 │  ├─ handlers/
+|  |  ├─ router.go
 │  ├─ repositores/
 
 ```

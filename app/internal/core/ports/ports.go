@@ -1,6 +1,6 @@
 package ports
 
-import "github.com/sevens7xix/hex-url-shortener/internal/core/domain"
+import "github.com/sevens7xix/hex-url-shortener/app/internal/core/domain"
 
 type ShortenersRepository interface {
 	Get(shortURL string) (domain.Data, error)
