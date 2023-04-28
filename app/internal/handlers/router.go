@@ -19,7 +19,7 @@ func NewHTTPHandler(shortenerService ports.ShortenerService) *HTTPHandler {
 }
 
 func (handler *HTTPHandler) ShortenURL(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	originalURL := ps.ByName("URL")
+	originalURL := ps.ByName("original")
 
 	shortURL, err := handler.service.Shorten(originalURL)
 

@@ -1,8 +1,6 @@
 package services
 
 import (
-	"time"
-
 	"github.com/sevens7xix/hex-url-shortener/app/internal/core/domain"
 	"github.com/sevens7xix/hex-url-shortener/app/internal/core/ports"
 	utilities "github.com/sevens7xix/hex-url-shortener/app/pkg/utilities"
@@ -21,7 +19,7 @@ func NewService(repository ports.ShortenersRepository, generator utilities.Short
 func (s *Service) Shorten(URL string) (string, error) {
 	ShortURL := s.generator.ShortenURL(URL)
 
-	newURLPair := domain.NewData(URL, ShortURL, time.Now())
+	newURLPair := domain.NewData(URL, ShortURL)
 
 	if err := s.ShortenersRepository.Create(newURLPair); err != nil {
 		return "", err
