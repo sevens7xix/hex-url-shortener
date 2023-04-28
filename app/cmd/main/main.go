@@ -12,9 +12,9 @@ import (
 )
 
 func main() {
-	RedisRepository := repositories.NewRedisRepository()
+	repository := repositories.NewDynamoDBRepository()
 	utilities := utilities.ShortenerImplementation{}
-	service := services.NewService(RedisRepository, utilities)
+	service := services.NewService(repository, utilities)
 	handler := handlers.NewHTTPHandler(service)
 
 	router := httprouter.New()
