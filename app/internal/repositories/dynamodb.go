@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"os"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -75,7 +76,14 @@ func NewDynamoDBRepository() *DynamoDBRepository {
 	_, err = svc.CreateTable(context.Background(), input)
 
 	if err != nil {
-		log.Fatalf("Failed to create table, %v", err)
+		log.Printf("Couldn't create table %v. Here's why: %v\n", "data", err)
+	} else {
+		waiter := dynamodb.NewTableExistsWaiter(svc)
+		err = waiter.Wait(context.TODO(), &dynamodb.DescribeTableInput{
+			TableName: aws.String("data")}, 5*time.Minute)
+		if err != nil {
+			log.Printf("Wait for table exists failed. Here's why: %v\n", err)
+		}
 	}
 
 	return &DynamoDBRepository{

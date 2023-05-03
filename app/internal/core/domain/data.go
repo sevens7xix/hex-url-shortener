@@ -1,8 +1,8 @@
 package domain
 
 type Data struct {
-	Original string `json:"original"`
-	Short    string `json:"short"`
+	Original string `dynamodbav:"original"`
+	Short    string `dynamodbav:"short"`
 }
 
 func NewData(original, short string) Data {
